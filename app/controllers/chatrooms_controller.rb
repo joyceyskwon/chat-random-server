@@ -7,7 +7,11 @@ class ChatroomsController < ApplicationController
 
   def show
     @chatroom = Chatroom.find(params[:id])
-    render json: @chatroom, status: :ok 
+    if @chatroom 
+      render json: @chatroom.messages, status: :ok
+    else
+      render json: {errors: @chatroom.errors.full_messages}
+    end
   end
 
   def create 
