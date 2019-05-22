@@ -1,5 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  config.web_socket_server_url = "wss://chat-random-server.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['http://localhost:3000', 'https://localhost:3000', 'http://chat-random-server.herokuapp.com', 'https://chat-random-server.herokuapp.com' ]
 
   # Code is not reloaded between requests.
   config.cache_classes = true
