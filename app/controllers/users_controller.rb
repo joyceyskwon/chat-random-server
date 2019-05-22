@@ -25,12 +25,12 @@ class UsersController < ApplicationController
     else
       render json: {error: @user.errors.full_messages}
     end 
-  end 
+  end
 
   private
 
   def user_params
-    params.require(:user).permit(:username, :color)
+    params.require(:user).permit(:username, :color, :is_online)
   end 
 
 end
