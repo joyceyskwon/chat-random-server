@@ -16,6 +16,7 @@ class ChatroomsController < ApplicationController
 
   def create 
     @chatroom = Chatroom.find_or_create_by(chatroom_params)
+    ActionCable.server.broadcast('chatroom_channel', @chatroom)
     render json: @chatroom, status: :created
   end 
 
