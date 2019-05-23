@@ -2,7 +2,7 @@ class MessageChannel < ApplicationCable::Channel
   
   # Finding unique chatroom and subscribing by its ID
   def subscribed
-    @chatroom = Chatroom.find_by(id: params[:id])
+    @chatroom = Chatroom.find_by(id: params[:chatroom_id])
     stream_for @chatroom
   end
 
